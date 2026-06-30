@@ -2,7 +2,7 @@
   position: absolute;
   top: 60px;
   right: 0;
-  width: 650px;
+  width: 600px;
   margin-top: 10px;
   margin-right: 20px;
   background-color: #fff;
@@ -13,5 +13,118 @@
   display: flex;
   flex-direction: column;
 
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.6s;
+
   z-index: 1000;
+  > .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 5px;
+  }
+
+  .buttons-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 10px;
+    gap: 20px;
+    .all-notifications,
+    .unread-notifications {
+      background: none;
+      border: none;
+      font-size: 16px;
+      padding: 10px 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      border: 1px solid black;
+      &:disabled {
+        background-color: #ebf0f5;
+        cursor: not-allowed;
+        border: 1px solid transparent;
+      }
+    }
+
+    .mark-all-as-read {
+      margin-left: auto;
+      color: #007bff;
+      display: flex;
+      align-items: center;
+      padding: 0px;
+      gap: 5px;
+    }
+    .mark-all-as-read:hover {
+      text-decoration: underline;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    .settings {
+      padding: 0px;
+    }
+  }
+
+  .notification-list {
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .notification-item {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    &.new {
+      background-color: #f0f0f5;
+    }
+    .dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #007bff;
+      flex-shrink: 0;
+    }
+    .action-icon {
+      width: 50px;
+      height: 50px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: flex-start;
+      justify-content: start;
+      min-height: 75px;
+      width: stretch;
+      .title {
+        font-size: 12px;
+        display: inline-flex;
+        gap: 5px;
+        .name {
+          font-weight: bold;
+        }
+      }
+      .timestamp {
+        font-size: 12px;
+        font-weight: bold;
+        color: #97969b;
+      }
+    }
+  }
 }

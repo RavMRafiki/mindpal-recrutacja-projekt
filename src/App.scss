@@ -6,3 +6,12 @@
   font: inherit;
   outline: inherit;
 }
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
