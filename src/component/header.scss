@@ -1,0 +1,34 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+  height: 60px;
+  width: 100vw;
+  .right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  button {
+    height: 100%;
+    padding: 5px 30px;
+    cursor: pointer;
+    &:hover {
+      background-color: #f8f9fa;
+    }
+    &:active {
+      background-color: #e9ecef;
+    }
+    &.profile-button {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+  }
+}
