@@ -1,17 +1,36 @@
 import React from "react";
-import { PiUserCircleDashedFill } from "react-icons/pi";
+import type { Notification } from "../utils/types";
+import NotificationItemIcon from "./NotificationItemIcon";
 
-export default function NotificationItem() {
+export default function NotificationItem({
+  notification,
+  onMarkAsRead,
+}: {
+  notification: Notification;
+  onMarkAsRead: (id: number) => void;
+}) {
   return (
-    <div className="notification-item new">
-      <div className="action-icon" style={{ background: "blue" }}>
-        <PiUserCircleDashedFill color="white" size={30} />
-      </div>
+    <div
+      className={`notification-item ${!notification.read && "new"}`}
+      onClick={() => {
+        onMarkAsRead(notification.id);
+      }}
+    >
+      <NotificationItemIcon notificationType={notification.type} />
       <div className="details">
         <div className="title">
-          <div className="name">Simona Winch</div> joined your team
+          <span className="name">{notification.name}</span>
+          {notification.company && (
+            <>
+              from
+              <span className="company"> {notification.company}</span>
+            </>
+          )}
+          {notification.message}
         </div>
-        <div className="timestamp">54 minutes ago</div>
+        <div className="timestamp">
+          {notification.timestamp.toLocaleTimeString()}
+        </div>
       </div>
       <div className="dot"></div>
     </div>
