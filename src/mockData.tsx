@@ -48,11 +48,11 @@ export const notificationsMockData: Notification[] = [
   },
   {
     id: 6,
-    type: "",
+    type: "other",
     message:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
-    read: true,
+    read: false,
     name: "Peter Pan",
   },
 ];

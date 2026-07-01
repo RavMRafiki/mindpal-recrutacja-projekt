@@ -27,6 +27,7 @@
     }
     &.profile-button,
     &.notifications-button {
+      position: relative;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -34,6 +35,19 @@
       font-weight: bold;
       font-size: 20px;
       text-transform: uppercase;
+      .notification-badge {
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        background: #dc3545;
+        color: #fff;
+        border-radius: 50%;
+        min-width: 18px;
+        height: 18px;
+        padding: 0 6px;
+        font-size: 12px;
+        text-align: center;
+      }
     }
   }
 }

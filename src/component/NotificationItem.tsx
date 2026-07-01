@@ -1,6 +1,7 @@
 import React from "react";
 import type { Notification } from "../utils/types";
 import NotificationItemIcon from "./NotificationItemIcon";
+import { timeAgo } from "../utils/timeAgo";
 
 export default function NotificationItem({
   notification,
@@ -28,9 +29,7 @@ export default function NotificationItem({
           )}
           {notification.message}
         </div>
-        <div className="timestamp">
-          {notification.timestamp.toLocaleTimeString()}
-        </div>
+        <div className="timestamp">{timeAgo(notification.timestamp)}</div>
       </div>
       <div className="dot"></div>
     </div>

@@ -1,6 +1,6 @@
 export type Notification = {
   id: number;
-  type: NotificationType | string;
+  type: NotificationType;
   message: string;
   timestamp: Date;
   read: boolean;
@@ -12,7 +12,8 @@ export type NotificationType =
   | "join team"
   | "request"
   | "cancel request"
-  | "reject request";
+  | "reject request"
+  | "other";
 
 export type NotificationAction =
   | { type: "MARK_READ"; id: number }

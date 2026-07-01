@@ -2,27 +2,18 @@ import "./notificationDropdown.scss";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import NotificationItem from "./NotificationItem";
 import { GoGear } from "react-icons/go";
-import { useMemo, useReducer, useState } from "react";
-import { notificationsMockData } from "../mockData";
+import { useMemo, useState } from "react";
 import type { Notification, NotificationAction } from "../utils/types";
 
-export default function NotificationDropdown() {
-  const reducer = (
-    state: Notification[],
-    action: NotificationAction,
-  ): Notification[] => {
-    switch (action.type) {
-      case "MARK_READ":
-        return state.map((n) =>
-          n.id === action.id ? { ...n, read: true } : n,
-        );
-      case "MARK_ALL_READ":
-        return state.map((n) => ({ ...n, read: true }));
-      default:
-        return state;
-    }
-  };
-  const [notifications, dispatch] = useReducer(reducer, notificationsMockData);
+export default function NotificationDropdown({
+  notifications,
+  dispatch,
+  unreadCount,
+}: {
+  notifications: Notification[];
+  dispatch: React.Dispatch<NotificationAction>;
+  unreadCount: number;
+}) {
   const [filter, setFilter] = useState<"all" | "read" | "unread">("all");
 
   const filtered = useMemo(
@@ -39,7 +30,12 @@ export default function NotificationDropdown() {
 
   return (
     <div className="notification-dropdown">
-      <div className="title">Notifications</div>
+      <div className="title">
+        Notifications
+        {unreadCount > 0 && (
+          <span className="notification-badge">{unreadCount}</span>
+        )}
+      </div>
       <div className="buttons-row">
         <button
           className={`unstyled all-notifications ${filter === "all" ? "active" : ""}`}
@@ -66,7 +62,11 @@ export default function NotificationDropdown() {
       </div>
       <div className="notification-list">
         {filtered.map((notification) => (
-          <NotificationItem key={notification.id} notification={notification} onMarkAsRead={markAsRead}/>
+          <NotificationItem
+            key={notification.id}
+            notification={notification}
+            onMarkAsRead={markAsRead}
+          />
         ))}
 
         {filtered.length === 0 && (
