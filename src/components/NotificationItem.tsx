@@ -17,10 +17,6 @@ export default function NotificationItem({
     () => timeAgo(notification.timestamp, now),
     [notification.timestamp, now],
   );
-  // const timeLabel = useMemo(
-  //   () => timeAgo(notification.timestamp),
-  //   [notification.timestamp],
-  // );
   return (
     <button
       className={`unstyled notification-item ${!notification.read && "new"}`}
