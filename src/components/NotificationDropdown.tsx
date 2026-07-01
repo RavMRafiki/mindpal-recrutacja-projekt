@@ -2,7 +2,7 @@ import "./notificationDropdown.scss";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import NotificationItem from "./NotificationItem";
 import { GoGear } from "react-icons/go";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type { Notification, NotificationAction } from "../utils/types";
 
 export default function NotificationDropdown({
@@ -24,9 +24,12 @@ export default function NotificationDropdown({
     [notifications, filter],
   );
 
-  function markAsRead(id: number) {
-    dispatch({ type: "MARK_READ", id });
-  }
+  const markAsRead = useCallback(
+    (id: number) => {
+      dispatch({ type: "MARK_READ", id });
+    },
+    [dispatch],
+  );
 
   return (
     <div
@@ -67,7 +70,10 @@ export default function NotificationDropdown({
           />
           Mark all as read
         </button>
-        <button className="unstyled settings" aria-label="Notification settings">
+        <button
+          className="unstyled settings"
+          aria-label="Notification settings"
+        >
           <GoGear color="var(--color-black)" size={20} aria-hidden="true" />
         </button>
       </div>

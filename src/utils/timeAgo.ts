@@ -1,4 +1,4 @@
-export function timeAgo(date: Date) {
+export function timeAgo(date: Date, now = Date.now()) {
   try {
     if (!(date instanceof Date) || isNaN(date.getTime())) {
       throw new Error("Invalid date");
@@ -7,9 +7,7 @@ export function timeAgo(date: Date) {
     console.error(error);
     return "Invalid date";
   }
-  const seconds = Math.floor(
-    (new Date().getTime() - new Date(date).getTime()) / 1000,
-  );
+  const seconds = Math.floor((now - new Date(date).getTime()) / 1000);
 
   const intervals = [
     { label: "year", seconds: 31536000 },

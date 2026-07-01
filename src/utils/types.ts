@@ -12,7 +12,6 @@ export type NotificationType =
   | "join team"
   | "request"
   | "cancel request"
-  | "reject request"
   | "other";
 
 export type NotificationAction =
