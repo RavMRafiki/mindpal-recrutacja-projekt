@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import type { Notification } from "../utils/types";
 import NotificationItemIcon from "./NotificationItemIcon";
 import { timeAgo } from "../utils/timeAgo";
@@ -10,6 +10,10 @@ export default function NotificationItem({
   notification: Notification;
   onMarkAsRead: (id: number) => void;
 }) {
+  const timeLabel = useMemo(
+    () => timeAgo(notification.timestamp),
+    [notification.timestamp],
+  );
   return (
     <div
       className={`notification-item ${!notification.read && "new"}`}
@@ -29,7 +33,7 @@ export default function NotificationItem({
           )}
           {notification.message}
         </div>
-        <div className="timestamp">{timeAgo(notification.timestamp)}</div>
+        <div className="timestamp">{timeLabel}</div>
       </div>
       <div className="dot"></div>
     </div>

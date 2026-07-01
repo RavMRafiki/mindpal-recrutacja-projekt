@@ -17,5 +17,5 @@ export function useClickOutside(
 
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [ref, onOutsideClick, enabled]);
+  }, [onOutsideClick, enabled]);
 }

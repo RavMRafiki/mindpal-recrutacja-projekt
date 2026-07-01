@@ -4,8 +4,8 @@ export type Notification = {
   message: string;
   timestamp: Date;
   read: boolean;
-  name?: string | null;
-  company?: string | null;
+  name?: string;
+  company?: string;
 };
 
 export type NotificationType =

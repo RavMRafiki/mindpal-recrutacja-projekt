@@ -8,7 +8,6 @@ export const notificationsMockData: Notification[] = [
     timestamp: new Date(Date.now() - 54 * 60 * 1000), // 54 minutes ago
     read: false,
     name: "Carol Jar",
-    company: null,
   },
   {
     id: 2,
@@ -17,7 +16,6 @@ export const notificationsMockData: Notification[] = [
     timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
     read: false,
     name: "Simona Winch",
-    company: null,
   },
   {
     id: 3,

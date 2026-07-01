@@ -1,3 +1,23 @@
+:root {
+  --color-white: #fff;
+  --color-black: #000000;
+  --color-border: #dee2e6;
+  --color-border-light: #ccc;
+  --color-bg-hover: #f8f9fa;
+  --color-bg-active: #e9ecef;
+  --color-bg-light: #ebf0f5;
+  --color-bg-new: #f0f0f5;
+  --color-primary: #007bff;
+  --color-danger: #dc3545;
+  --color-text-muted: #97969b;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+
+  --color-notification-join-team: #3e6daf;
+  --color-notification-request: #3e6daf;
+  --color-notification-cancel-request: #84415c;
+  --color-notification-other: #787a7d;
+}
+
 .unstyled {
   background: none;
   color: inherit;
