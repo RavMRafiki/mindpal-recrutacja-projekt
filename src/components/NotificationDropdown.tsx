@@ -24,6 +24,11 @@ export default function NotificationDropdown({
     [notifications, filter],
   );
 
+  const filteredIds = useMemo(
+    () => new Set(filtered.map((n) => n.id)),
+    [filtered],
+  );
+
   const markAsRead = useCallback(
     (id: number) => {
       dispatch({ type: "MARK_READ", id });
@@ -78,14 +83,14 @@ export default function NotificationDropdown({
         </button>
       </div>
       <div className="notification-list" role="list">
-        {filtered.map((notification) => (
+        {notifications.map((notification) => (
           <NotificationItem
             key={notification.id}
             notification={notification}
             onMarkAsRead={markAsRead}
+            className={filteredIds.has(notification.id) ? "" : "hidden"}
           />
         ))}
-
         {filtered.length === 0 && (
           <div className="no-notifications" role="status">
             There is nothing to show

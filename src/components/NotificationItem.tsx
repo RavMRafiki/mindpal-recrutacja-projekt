@@ -7,9 +7,11 @@ import { useNow } from "../utils/useNow";
 export default function NotificationItem({
   notification,
   onMarkAsRead,
+  className = "",
 }: {
   notification: Notification;
   onMarkAsRead: (id: number) => void;
+  className?: string;
 }) {
   const now = useNow(30_000);
 
@@ -19,7 +21,7 @@ export default function NotificationItem({
   );
   return (
     <button
-      className={`unstyled notification-item ${!notification.read && "new"}`}
+      className={`unstyled notification-item ${className} ${!notification.read && "new"}`}
       onClick={() => {
         onMarkAsRead(notification.id);
       }}
