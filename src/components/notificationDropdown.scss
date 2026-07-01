@@ -5,10 +5,10 @@
   width: 600px;
   margin-top: 10px;
   margin-right: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-light);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--color-shadow);
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -31,8 +31,8 @@
       position: absolute;
       top: -4px;
       right: -20px;
-      background: #dc3545;
-      color: #fff;
+      background: var(--color-danger);
+      color: var(--color-white);
       border-radius: 50%;
       min-width: 18px;
       height: 18px;
@@ -57,16 +57,16 @@
       display: flex;
       align-items: center;
       border-radius: 4px;
-      border: 1px solid black;
+      border: 1px solid var(--color-black);
       &:not(.active) {
-        background-color: #ebf0f5;
+        background-color: var(--color-bg-light);
         border: 1px solid transparent;
       }
     }
 
     .mark-all-as-read {
       margin-left: auto;
-      color: #007bff;
+      color: var(--color-blue);
       display: flex;
       align-items: center;
       padding: 0px;
@@ -91,7 +91,7 @@
     gap: 10px;
     .no-notifications {
       text-align: center;
-      color: #97969b;
+      color: var(--color-text-muted);
       font-size: 14px;
       padding: 30px;
     }
@@ -106,13 +106,13 @@
     border-radius: 4px;
     cursor: pointer;
     &.new {
-      background-color: #f0f0f5;
+      background-color: var(--color-bg-new);
     }
     .dot {
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      background-color: #007bff;
+      background-color: var(--color-blue);
       flex-shrink: 0;
     }
     &:not(.new) .dot {
@@ -152,7 +152,7 @@
       .timestamp {
         font-size: 12px;
         font-weight: bold;
-        color: #97969b;
+        color: var(--color-text-muted);
       }
     }
   }

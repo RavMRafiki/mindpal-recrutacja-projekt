@@ -53,11 +53,11 @@ export default function NotificationDropdown({
           className="unstyled mark-all-as-read"
           onClick={() => dispatch({ type: "MARK_ALL_READ" })}
         >
-          <IoCheckmarkDoneSharp color="#007bff" size={25} />
+          <IoCheckmarkDoneSharp color="var(--color-blue)" size={25} />
           Mark all as read
         </button>
         <button className="unstyled settings">
-          <GoGear color="#000000" size={20} />
+          <GoGear color="var(--color-black)" size={20} />
         </button>
       </div>
       <div className="notification-list">

@@ -22,7 +22,7 @@ export default function Notification() {
         className="unstyled notifications-button"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <FaBell color="#000000" size={25} />
+        <FaBell color="var(--color-black)" size={25} />
         {unreadCount > 0 && (
           <span className="notification-badge">{unreadCount}</span>
         )}
