@@ -97,7 +97,6 @@
         max-height 0.3s ease,
         padding 0.3s ease,
         margin 0.3s ease;
-      // max-height: 9999px;
       flex-shrink: 0;
       margin-bottom: 10px;
       overflow: hidden;
@@ -179,12 +178,13 @@
         font-size: 12px;
         font-weight: bold;
         color: var(--color-text-muted);
+        text-align: left;
       }
     }
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .notification-dropdown {
     width: 90vw;
     right: 5vw;
