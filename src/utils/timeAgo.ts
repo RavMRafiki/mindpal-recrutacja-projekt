@@ -1,4 +1,12 @@
 export function timeAgo(date: Date) {
+  try {
+    if (!(date instanceof Date) || isNaN(date.getTime())) {
+      throw new Error("Invalid date");
+    }
+  } catch (error) {
+    console.error(error);
+    return "Invalid date";
+  }
   const seconds = Math.floor(
     (new Date().getTime() - new Date(date).getTime()) / 1000,
   );

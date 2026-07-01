@@ -138,10 +138,10 @@
       .title {
         font-size: 12px;
         display: inline-block;
-        gap: 5px;
+        text-align: left;
         .name,
         .company {
-          display: inline-flex;
+          display: inline;
           font-weight: bold;
           margin-right: 0.25em;
         }
@@ -154,6 +154,19 @@
         font-weight: bold;
         color: var(--color-text-muted);
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .notification-dropdown {
+    width: 90vw;
+    right: 5vw;
+    top: 50px;
+    margin-right: 0;
+    .buttons-row {
+      flex-wrap: wrap;
+      gap: 10px;
     }
   }
 }

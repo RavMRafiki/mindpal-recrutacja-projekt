@@ -15,16 +15,16 @@ export default function NotificationItem({
     [notification.timestamp],
   );
   return (
-    <div
-      className={`notification-item ${!notification.read && "new"}`}
+    <button
+      className={`unstyled notification-item ${!notification.read && "new"}`}
       onClick={() => {
         onMarkAsRead(notification.id);
       }}
       role="button"
       tabIndex={0}
       aria-label={`Mark "${notification.name}" notification as read`}
-      onKeyPress={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
           onMarkAsRead(notification.id);
         }
       }}
@@ -44,6 +44,6 @@ export default function NotificationItem({
         <div className="timestamp">{timeLabel}</div>
       </div>
       <div className="dot" aria-hidden="true"></div>
-    </div>
+    </button>
   );
 }

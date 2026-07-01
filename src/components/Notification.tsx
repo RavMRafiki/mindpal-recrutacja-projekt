@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback, useReducer } from "react";
+import React, { useRef, useState, useCallback, useReducer, useMemo } from "react";
 import { FaBell } from "react-icons/fa";
 import NotificationDropdown from "./NotificationDropdown";
 import { useClickOutside } from "../utils/useClickOutside";
@@ -12,7 +12,11 @@ export default function Notification() {
   const close = useCallback(() => setIsOpen(false), []);
 
   const [notifications, dispatch] = useReducer(reducer, notificationsMockData);
-  const unreadCount = notifications.filter((n) => !n.read).length;
+  // const unreadCount = notifications.filter((n) => !n.read).length;
+  const unreadCount = useMemo(
+    () => notifications.reduce((count, n) => count + (n.read ? 0 : 1), 0),
+    [notifications],
+  );
 
   useClickOutside(containerRef, close, isOpen);
 

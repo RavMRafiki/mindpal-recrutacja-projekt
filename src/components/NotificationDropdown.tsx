@@ -29,7 +29,11 @@ export default function NotificationDropdown({
   }
 
   return (
-    <div className="notification-dropdown" role="dialog" aria-label="Notifications">
+    <div
+      className="notification-dropdown"
+      role="dialog"
+      aria-label="Notifications"
+    >
       <div className="title">
         Notifications
         {unreadCount > 0 && (
@@ -56,10 +60,14 @@ export default function NotificationDropdown({
           onClick={() => dispatch({ type: "MARK_ALL_READ" })}
           aria-label="Mark all notifications as read"
         >
-          <IoCheckmarkDoneSharp color="var(--color-blue)" size={25} aria-hidden="true" />
+          <IoCheckmarkDoneSharp
+            color="var(--color-blue)"
+            size={25}
+            aria-hidden="true"
+          />
           Mark all as read
         </button>
-        <button className="unstyled settings" aria-label="Settings">
+        <button className="unstyled settings" aria-label="Notification settings">
           <GoGear color="var(--color-black)" size={20} aria-hidden="true" />
         </button>
       </div>
@@ -73,7 +81,9 @@ export default function NotificationDropdown({
         ))}
 
         {filtered.length === 0 && (
-          <div className="no-notifications" role="status">There is nothing to show</div>
+          <div className="no-notifications" role="status">
+            There is nothing to show
+          </div>
         )}
       </div>
     </div>
