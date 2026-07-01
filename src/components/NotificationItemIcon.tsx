@@ -19,6 +19,7 @@ export default function NotificationItemIcon({
               <div
                 className="action-icon"
                 style={{ background: "var(--color-notification-join-team)" }}
+                aria-hidden="true"
               >
                 <PiUserCircleDashedFill color="white" size={30} />
               </div>
@@ -28,6 +29,7 @@ export default function NotificationItemIcon({
               <div
                 className="action-icon"
                 style={{ background: "var(--color-notification-request)" }}
+                aria-hidden="true"
               >
                 <IoDocumentTextOutline color="white" size={25} />
               </div>
@@ -39,6 +41,7 @@ export default function NotificationItemIcon({
                 style={{
                   background: "var(--color-notification-cancel-request)",
                 }}
+                aria-hidden="true"
               >
                 <FiTrash color="white" size={22} />
               </div>
@@ -48,6 +51,7 @@ export default function NotificationItemIcon({
               <div
                 className="action-icon"
                 style={{ background: "var(--color-notification-other)" }}
+                aria-hidden="true"
               >
                 <CiCircleQuestion color="white" size={22} />
               </div>

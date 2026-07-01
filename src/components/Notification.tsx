@@ -2,7 +2,7 @@ import React, { useRef, useState, useCallback, useReducer } from "react";
 import { FaBell } from "react-icons/fa";
 import NotificationDropdown from "./NotificationDropdown";
 import { useClickOutside } from "../utils/useClickOutside";
-import type { Notification, NotificationAction } from "../utils/types";
+import type { Notification } from "../utils/types";
 import { notificationsMockData } from "../mockData";
 import { reducer } from "../utils/notificationReducer";
 
@@ -18,15 +18,18 @@ export default function Notification() {
 
   return (
     <div className="notification-container" ref={containerRef}>
-      <button
-        className="unstyled notifications-button"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <FaBell color="var(--color-black)" size={25} />
-        {unreadCount > 0 && (
-          <span className="notification-badge">{unreadCount}</span>
-        )}
-      </button>
+<button
+         className="unstyled notifications-button"
+         onClick={() => setIsOpen(!isOpen)}
+         aria-label={`Notifications (${unreadCount} unread)`}
+         aria-expanded={isOpen}
+         aria-controls="notification-dropdown"
+       >
+         <FaBell color="var(--color-black)" size={25} aria-hidden="true" />
+         {unreadCount > 0 && (
+           <span className="notification-badge" aria-hidden="true">{unreadCount}</span>
+         )}
+       </button>
       {isOpen && (
         <NotificationDropdown
           notifications={notifications}
